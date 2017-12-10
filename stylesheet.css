@@ -1,0 +1,106 @@
+/********** Helpful Elements **********/
+
+.spacer {
+    width: 100%;
+    background-color: transparent;
+}
+
+.spacer--20 {
+    height: 20px;
+}
+
+
+/********** Header **********/
+
+.header {
+    position: relative;
+    height: 135px;
+    width: 100%;
+    background-color: #ff627d;
+    color: white;
+
+    display: flex;
+    flex-flow: column;
+}
+
+.org-name {
+    margin: auto;
+    font-size: 10vw;
+}
+
+.python-logo {
+    height: 5.5vw;
+    vertical-align: baseline;
+    width: auto;
+    margin-left: 1px;
+}
+
+.header__links {
+    margin: 0 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.header__link {
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+.header__link:hover {
+    color: white;
+    opacity: 0.8;
+}
+
+.nav {
+    position: absolute;
+    top: 135px;
+
+    width: 100%;
+
+    display: flex;
+    flex-flow: column;
+
+    background-color: rgba(253, 253, 253, 0.9);
+}
+
+.nav__link {
+    color: black;
+    text-align: center;
+    padding: 10px 0;
+    border-top: solid #cecece 1px;
+}
+
+/********** Content **********/
+
+.intro-image {
+    background: url('spotlightphoto.jpg');
+    height: 250px;
+    width: 100%;
+}
+
+.content {
+    margin: 20px;
+}
+
+.content h2 {
+    font-weight: normal;
+}
+
+.cta__text {
+    text-align: center;
+    line-height: 1.5;
+    font-size: 24px;
+}
+
+.perks {
+    text-align: center;
+}
+
+.perk {
+    margin-bottom: 20px;
+}
+
+.perk__title {
+    margin-bottom: 0;
+}
