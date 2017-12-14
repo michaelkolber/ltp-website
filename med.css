@@ -1,0 +1,62 @@
+@media (min-width: 550px) {
+
+/********** Header **********/
+
+.header {
+    height: 95px;
+    margin-bottom: 59px;
+    flex-direction: row;
+}
+
+.org-name {
+    font-size: 53px;
+}
+
+.python-logo {
+    height: 30px;
+}
+
+.header__links {
+    flex-direction: column;
+    text-align: right;
+    margin: auto;
+}
+
+.header__link--fb {
+    order: -1;
+}
+
+.header__link--menu {
+    display: none;
+}
+
+/********** Navigation **********/
+
+.site-nav {
+    height: unset !important;
+    top: 85px;
+}
+
+.site-nav__container {
+    flex-direction: row;
+    margin: 0;
+}
+
+.site-nav__link {
+    padding: 20px;
+
+    border: 0px;
+
+    flex-grow: 1;
+}
+
+.site-nav__link i {
+    display: none;
+}
+
+.site-nav__link::after, .site-nav__link:first-child::before {
+  width: 0;
+  height: 0;
+}
+
+}
