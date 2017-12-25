@@ -1,165 +1,113 @@
-/********** Basic Elements **********/
-body {
-    min-width: 250px;
-}
-
-/********** Helpful Elements **********/
-
-.spacer {
-    width: 100%;
-    background-color: transparent;
-}
-
-.spacer--20 {
-    height: 20px;
-}
-
-
-/********** Header **********/
-
-.header {
-    position: relative;
-    height: 135px;
-    width: 100%;
-    background-color: #343a40;
-    color: white;
-
-    display: flex;
-    flex-direction: column;
-}
-
-.org-name {
-    margin: auto;
-    font-size: 10vw;
-
-}
-
-.python-logo {
-    height: 5.5vw;
-    vertical-align: baseline;
-    width: auto;
-    margin-left: 1px;
-}
-
-.header__links {
-    margin: 0 0 auto;
-    display: flex;
-    justify-content: space-around;
-}
-
-.header__link {
-    font-weight: bold;
-    text-decoration: none;
-    color: white;
-}
-
-.header__link--slack-icon, .header__link--fb-icon {
-    display: none;
-}
-
-.header__link:hover {
-    color: white;
-    opacity: 0.8;
-}
-
-.header__spacer {
-    display: none;
-}
-
-/********** Navigation **********/
-
-.site-nav {
-    position: absolute;
-    top: 135px;
-    overflow: hidden;
-
-    height: 0;
-    width: 100%;
-
-    transition: height 0.5s;
-    border-bottom: 5px solid #64aaf7;
-}
-
-.site-nav__container {
-    display: flex;
-    flex-direction: column;
-    margin-top: 1px; /* To make the top of the first button pop out */
-
-    background-color: #50606f; /* #aed5ff; for python theme*/
-}
-
-.site-nav__link {
-    position: relative;
-    padding: 20px 0;
-    border-top: 1px #42484d solid;
-    border-bottom: 1px #42484d solid;
-
-    background-color: #343a40;
-
-    color: white;
-    text-align: center;
-    text-transform: uppercase;
-    font-family: 'Montserrat', -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; /*Included at bottom of HTML, from Google Fonts*/
-    font-weight: 500;
-}
-
-.site-nav__link::after, .site-nav__link:first-child::before {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-
-  width: 100%;
-  height: 1px;
-  background-color: #191919;
-}
-
-.site-nav__link:first-child::before {
-    top: -2px;
-}
-
-
-/* No longer needed
-Went with: <div class="site-nav__separator"></div>
-
-.site-nav__separator {
-    width: 30%;
-    height: 1px;
-    background-color: #3773a5;
-}
-
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
 */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
 
-/********** Content **********/
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
 
-.intro-image {
-    background: url('spotlightphoto.jpg');
-    height: 250px;
-    width: 100%;
-}
+body {
+  line-height: 1; }
 
-.content {
-    margin: 20px;
-}
+ol, ul {
+  list-style: none; }
 
-.content h2 {
-    font-weight: normal;
-}
+blockquote, q {
+  quotes: none; }
 
-.cta__text {
-    text-align: center;
-    line-height: 1.5;
-    font-size: 24px;
-}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
 
-.perks {
-    text-align: center;
-}
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
 
-.perk {
-    margin-bottom: 20px;
-}
+body {
+  font-family: 'Raleway', sans-serif; }
 
-.perk__title {
-    margin-bottom: 0;
-}
+.page-wrapper {
+  margin: 0 auto;
+  max-width: 1000px; }
+
+.nav {
+  margin: 10px 0;
+  padding: 10px;
+  height: 80px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: space-between; }
+
+.nav__site-name {
+  font-weight: 800;
+  font-size: 45px;
+  letter-spacing: 5px;
+  margin: auto 0; }
+
+.nav-links {
+  margin: auto 0; }
+
+.nav-link, .nav-cta {
+  font-weight: 800;
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: black;
+  position: relative;
+  padding: 10px; }
+
+.nav-link::after {
+  position: absolute;
+  content: '';
+  left: 10px;
+  /* To offset the padding */
+  bottom: 2px;
+  /* Negative height of the border, minus 5px for looks, plus padding */
+  height: 3px;
+  width: calc(100% - 20px);
+  /* To offset the padding */
+  background-color: #3773a5;
+  opacity: 0;
+  transition: opacity 0.25s; }
+
+.nav-link--active::after, .nav-link:hover::after {
+  opacity: 1; }
+
+.nav-cta {
+  text-transform: none;
+  background-color: #3773a5;
+  color: white;
+  transition: background-color 0.25s;
+  border-radius: 5px;
+  background-clip: padding-box;
+  /* To prevent background bleeding past border */
+  margin-left: 20px; }
+
+.nav-cta:hover {
+  background-color: orangered; }
+
+/*# sourceMappingURL=stylesheet.css.map */
