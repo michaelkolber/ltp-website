@@ -1,13 +1,34 @@
 @import 'reset';
 
-$primary-color: #3773a5;
+$primary: #3773a5;
 
 body {
     font-family: 'Raleway', sans-serif;
 }
 
-.bold {
+h2 {
+    text-align: center;
+    font-size: 26px;
     font-weight: 600;
+    color: $primary;
+
+    margin: 20px 0;
+}
+
+p {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    line-height: 28px;
+    text-align: justify;
+}
+
+.bold {
+    font-weight: 700;
+}
+
+%unlink {
+    text-decoration: none;
+    color: black;
 }
 
 
@@ -23,12 +44,11 @@ body {
 }
 
 %nav-items {
+    @extend %unlink;
     font-weight: 600;
     font-size: 20px;
     font-family: 'Open Sans', sans-serif;
     text-transform: uppercase;
-    text-decoration: none;
-    color: black;
 
     position: relative;
 
@@ -44,6 +64,7 @@ body {
     justify-content: space-between;
 
     &__site-name {
+        @extend %unlink;
         font-weight: 800;
         font-size: 45px;
         letter-spacing: 5px;
@@ -65,7 +86,7 @@ body {
             bottom: 2px; // Negative height of the border, minus 5px for looks, plus padding
             height: 3px;
             width: calc(100% - 20px); // To offset the padding
-            background-color: $primary-color;
+            background-color: $primary;
             opacity: 0;
             transition: opacity 0.25s;
         }
@@ -78,18 +99,18 @@ body {
     &-cta {
         @extend %nav-items;
         text-transform: none;
-        background-color: $primary-color;
-        color: white;
-        transition: background-color 0.25s;
+        color: $primary;
+        transition: background-color 0.25s, color 0.25s;
 
         border-radius: 5px;
-        background-clip: padding-box; // To prevent background bleeding past border
+        border: 1px solid $primary;
 
         margin-left: 20px;
         padding: 8px 10px;
 
         &:hover {
-            background-color: orangered;
+            background-color: $primary;
+            color: white;
         }
     }
 }
@@ -123,13 +144,13 @@ body {
     &__subtext {
         display: inline-block;
 
-        font-family: 'Open Sans', 'Raleway', sans-serif;
+        font-family: 'Open Sans', sans-serif;
         font-size: 22px;
         font-weight: 600;
         text-transform: uppercase;
 
         color: white;
-        background-color: $primary-color;
+        background-color: $primary;
 
         margin-top: 15px;
         margin-bottom: 15px;
@@ -147,7 +168,7 @@ body {
 
     height: 300px;
     border-radius: 5px;
-    border: 3px solid $primary-color;
+    border: 3px solid $primary;
 
     &::before { // Just to denote there's a placeholder image
         position: absolute;
@@ -170,20 +191,13 @@ body {
 
 .intro-text {
     grid-area: intro-text;
+    align-self: center;
 
     &__heading {
-        text-align: center;
-        font-size: 26px;
-        font-weight: 600;
-        color: $primary-color;
-
-        margin-bottom: 20px;
+        margin-top: 0;
     }
 
     &__text {
-        font-family: 'Lato', sans-serif;
-        font-size: 18px;
-        line-height: 28px;
-        text-align: justify;
+        text-align: center;
     }
 }
