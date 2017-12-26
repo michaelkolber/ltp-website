@@ -29,63 +29,64 @@ body {
 
     display: flex;
     justify-content: space-between;
-}
 
-.nav__site-name {
-    font-weight: 800;
-    font-size: 45px;
-    letter-spacing: 5px;
+    &__site-name {
+        font-weight: 800;
+        font-size: 45px;
+        letter-spacing: 5px;
 
-    margin: auto 0;
-}
+        margin: auto 0;
+    }
 
-.nav-links {
-    margin: auto 0;
-}
+    &-links {
+        margin: auto 0;
+    }
 
-.nav-link, .nav-cta {
-    font-weight: 600;
-    font-size: 20px;
-    font-family: 'Open Sans', sans-serif;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: black;
+    &-link, &-cta {
+        font-weight: 600;
+        font-size: 20px;
+        font-family: 'Open Sans', sans-serif;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: black;
 
-    position: relative;
+        position: relative;
 
-    padding: 10px;
-}
+        padding: 10px;
+    }
 
-.nav-link::after {
-    position: absolute;
-    content: '';
-    left: 10px; // To offset the padding
-    bottom: 2px; // Negative height of the border, minus 5px for looks, plus padding
-    height: 3px;
-    width: calc(100% - 20px); // To offset the padding
-    background-color: $primary-color;
-    opacity: 0;
-    transition: opacity 0.25s;
-}
+    &-link::after {
+        position: absolute;
+        content: '';
+        left: 10px; // To offset the padding
+        bottom: 2px; // Negative height of the border, minus 5px for looks, plus padding
+        height: 3px;
+        width: calc(100% - 20px); // To offset the padding
+        background-color: $primary-color;
+        opacity: 0;
+        transition: opacity 0.25s;
+    }
 
-.nav-link--active::after, .nav-link:hover::after {
-    opacity: 1;
-}
+    &-link--active::after, &-link:hover::after {
+        opacity: 1;
+    }
 
-.nav-cta {
-    text-transform: none;
-    background-color: $primary-color;
-    color: white;
-    transition: background-color 0.25s;
+    &-cta {
+        text-transform: none;
+        background-color: $primary-color;
+        color: white;
+        transition: background-color 0.25s;
 
-    border-radius: 5px;
-    background-clip: padding-box; // To prevent background bleeding past border
+        border-radius: 5px;
+        background-clip: padding-box; // To prevent background bleeding past border
 
-    margin-left: 20px;
-}
+        margin-left: 20px;
+        padding: 8px 10px;
 
-.nav-cta:hover {
-    background-color: orangered;
+        &:hover {
+            background-color: orangered;
+        }
+    }
 }
 
 
@@ -109,55 +110,75 @@ body {
     grid-area: header;
 
     text-align: center;
+
+    &__main {
+        font-size: 75px;
+    }
+
+    &__subtext {
+        display: inline-block;
+
+        font-family: 'Open Sans', 'Raleway', sans-serif;
+        font-size: 22px;
+        font-weight: 600;
+        text-transform: uppercase;
+
+        color: white;
+        background-color: $primary-color;
+
+        margin-top: 15px;
+        margin-bottom: 15px;
+        padding: 8px;
+        border-radius: 5px;
+    }
 }
 
-.name__main {
-    font-size: 75px;
-}
-
-.name__subtext {
-    display: inline-block;
-
-    font-family: 'Open Sans', 'Raleway', sans-serif;
-    font-size: 22px;
-    font-weight: 600;
-    text-transform: uppercase;
-
-    color: white;
-    background-color: $primary-color;
-
-    margin-top: 15px;
-    margin-bottom: 15px;
-    padding: 8px;
-    border-radius: 5px;
-}
 
 .intro-image {
     grid-area: intro-image;
+    position: relative;
 
-    background: rgba(128, 128, 128, 0.5) url(spotlightphoto.jpg);
-    background-position: center;
+    background: url(spotlightphoto.jpg) center/cover no-repeat;
+
     height: 300px;
     border-radius: 5px;
     border: 3px solid $primary-color;
+
+    &::before { // Just to denote there's a placeholder image
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        content: 'PLACEHOLDER IMAGE';
+        color: white;
+        font-weight: 600;
+        font-size: 40px;
+        text-align: center;
+
+        padding-top: 130px;
+        box-sizing: border-box;
+        background-color: rgba(0, 0, 0, 0.85);
+    }
 }
 
 .intro-text {
     grid-area: intro-text;
-}
 
-.intro-text__heading {
-    text-align: center;
-    font-size: 26px;
-    font-weight: 600;
-    color: $primary-color;
+    &__heading {
+        text-align: center;
+        font-size: 26px;
+        font-weight: 600;
+        color: $primary-color;
 
-    margin-bottom: 20px;
-}
+        margin-bottom: 20px;
+    }
 
-.intro-text__text {
-    font-family: 'Lato', sans-serif;
-    font-size: 18px;
-    line-height: 28px;
-    text-align: justify;
+    &__text {
+        font-family: 'Lato', sans-serif;
+        font-size: 18px;
+        line-height: 28px;
+        text-align: justify;
+    }
 }

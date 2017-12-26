@@ -64,51 +64,45 @@ body {
     margin: 0 auto;
     display: flex;
     justify-content: space-between; }
-
-.nav__site-name {
-    font-weight: 800;
-    font-size: 45px;
-    letter-spacing: 5px;
-    margin: auto 0; }
-
-.nav-links {
-    margin: auto 0; }
-
-.nav-link, .nav-cta {
-    font-weight: 600;
-    font-size: 20px;
-    font-family: 'Open Sans', sans-serif;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: black;
-    position: relative;
-    padding: 10px; }
-
-.nav-link::after {
-    position: absolute;
-    content: '';
-    left: 10px;
-    bottom: 2px;
-    height: 3px;
-    width: calc(100% - 20px);
-    background-color: #3773a5;
-    opacity: 0;
-    transition: opacity 0.25s; }
-
-.nav-link--active::after, .nav-link:hover::after {
-    opacity: 1; }
-
-.nav-cta {
-    text-transform: none;
-    background-color: #3773a5;
-    color: white;
-    transition: background-color 0.25s;
-    border-radius: 5px;
-    background-clip: padding-box;
-    margin-left: 20px; }
-
-.nav-cta:hover {
-    background-color: orangered; }
+    .nav__site-name {
+        font-weight: 800;
+        font-size: 45px;
+        letter-spacing: 5px;
+        margin: auto 0; }
+    .nav-links {
+        margin: auto 0; }
+    .nav-link, .nav-cta {
+        font-weight: 600;
+        font-size: 20px;
+        font-family: 'Open Sans', sans-serif;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: black;
+        position: relative;
+        padding: 10px; }
+    .nav-link::after {
+        position: absolute;
+        content: '';
+        left: 10px;
+        bottom: 2px;
+        height: 3px;
+        width: calc(100% - 20px);
+        background-color: #3773a5;
+        opacity: 0;
+        transition: opacity 0.25s; }
+    .nav-link--active::after, .nav-link:hover::after {
+        opacity: 1; }
+    .nav-cta {
+        text-transform: none;
+        background-color: #3773a5;
+        color: white;
+        transition: background-color 0.25s;
+        border-radius: 5px;
+        background-clip: padding-box;
+        margin-left: 20px;
+        padding: 8px 10px; }
+        .nav-cta:hover {
+            background-color: orangered; }
 
 .content {
     display: grid;
@@ -123,45 +117,55 @@ body {
 .name {
     grid-area: header;
     text-align: center; }
-
-.name__main {
-    font-size: 75px; }
-
-.name__subtext {
-    display: inline-block;
-    font-family: 'Open Sans', 'Raleway', sans-serif;
-    font-size: 22px;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: white;
-    background-color: #3773a5;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    padding: 8px;
-    border-radius: 5px; }
+    .name__main {
+        font-size: 75px; }
+    .name__subtext {
+        display: inline-block;
+        font-family: 'Open Sans', 'Raleway', sans-serif;
+        font-size: 22px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: white;
+        background-color: #3773a5;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        padding: 8px;
+        border-radius: 5px; }
 
 .intro-image {
     grid-area: intro-image;
-    background: rgba(128, 128, 128, 0.5) url(spotlightphoto.jpg);
-    background-position: center;
+    position: relative;
+    background: url(spotlightphoto.jpg) center/cover no-repeat;
     height: 300px;
     border-radius: 5px;
     border: 3px solid #3773a5; }
+    .intro-image::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: 'PLACEHOLDER IMAGE';
+        color: white;
+        font-weight: 600;
+        font-size: 40px;
+        text-align: center;
+        padding-top: 130px;
+        box-sizing: border-box;
+        background-color: rgba(0, 0, 0, 0.85); }
 
 .intro-text {
     grid-area: intro-text; }
-
-.intro-text__heading {
-    text-align: center;
-    font-size: 26px;
-    font-weight: 600;
-    color: #3773a5;
-    margin-bottom: 20px; }
-
-.intro-text__text {
-    font-family: 'Lato', sans-serif;
-    font-size: 18px;
-    line-height: 28px;
-    text-align: justify; }
+    .intro-text__heading {
+        text-align: center;
+        font-size: 26px;
+        font-weight: 600;
+        color: #3773a5;
+        margin-bottom: 20px; }
+    .intro-text__text {
+        font-family: 'Lato', sans-serif;
+        font-size: 18px;
+        line-height: 28px;
+        text-align: justify; }
 
 /*# sourceMappingURL=stylesheet.css.map */
