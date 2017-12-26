@@ -1,21 +1,31 @@
 @import 'reset';
 
+$primary-color: #3773a5;
+
 body {
     font-family: 'Raleway', sans-serif;
 }
 
-.page-wrapper {
-    margin: 0 auto;
-    max-width: 1000px;
+.bold {
+    font-weight: 600;
+}
+
+
+///// Navigation /////
+
+.nav-wrapper {
+    margin-top: 10px;
+    margin-bottom: 40px;
+    padding: 10px;
+
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 .nav {
-    margin: 10px 0;
-    padding: 10px;
-
-    height: 80px;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    max-width: 1200px;
+    height: 50px;
+    margin: 0 auto;
 
     display: flex;
     justify-content: space-between;
@@ -34,9 +44,9 @@ body {
 }
 
 .nav-link, .nav-cta {
-    font-weight: 800;
+    font-weight: 600;
     font-size: 20px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     text-transform: uppercase;
     text-decoration: none;
     color: black;
@@ -49,11 +59,11 @@ body {
 .nav-link::after {
     position: absolute;
     content: '';
-    left: 10px; /* To offset the padding */
-    bottom: 2px; /* Negative height of the border, minus 5px for looks, plus padding */
+    left: 10px; // To offset the padding
+    bottom: 2px; // Negative height of the border, minus 5px for looks, plus padding
     height: 3px;
-    width: calc(100% - 20px); /* To offset the padding */
-    background-color: #3773a5;
+    width: calc(100% - 20px); // To offset the padding
+    background-color: $primary-color;
     opacity: 0;
     transition: opacity 0.25s;
 }
@@ -64,16 +74,90 @@ body {
 
 .nav-cta {
     text-transform: none;
-    background-color: #3773a5;
+    background-color: $primary-color;
     color: white;
     transition: background-color 0.25s;
 
     border-radius: 5px;
-    background-clip: padding-box; /* To prevent background bleeding past border */
+    background-clip: padding-box; // To prevent background bleeding past border
 
     margin-left: 20px;
 }
 
 .nav-cta:hover {
     background-color: orangered;
+}
+
+
+///// Content /////
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "header header"
+                         "intro-image intro-text";
+    grid-gap: 40px 40px;
+
+
+    margin: 0 auto;
+    padding: 0 10px;
+    max-width: 1200px;
+}
+
+.name {
+    grid-area: header;
+
+    text-align: center;
+}
+
+.name__main {
+    font-size: 75px;
+}
+
+.name__subtext {
+    display: inline-block;
+
+    font-family: 'Open Sans', 'Raleway', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    color: white;
+    background-color: $primary-color;
+
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.intro-image {
+    grid-area: intro-image;
+
+    background: rgba(128, 128, 128, 0.5) url(spotlightphoto.jpg);
+    background-position: center;
+    height: 300px;
+    border-radius: 5px;
+    border: 3px solid $primary-color;
+}
+
+.intro-text {
+    grid-area: intro-text;
+}
+
+.intro-text__heading {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 600;
+    color: $primary-color;
+
+    margin-bottom: 20px;
+}
+
+.intro-text__text {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    line-height: 28px;
+    text-align: justify;
 }
