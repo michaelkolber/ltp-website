@@ -22,6 +22,19 @@ body {
     border-bottom: 1px solid black;
 }
 
+%nav-items {
+    font-weight: 600;
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+
+    position: relative;
+
+    padding: 10px;
+}
+
 .nav {
     max-width: 1200px;
     height: 50px;
@@ -42,36 +55,28 @@ body {
         margin: auto 0;
     }
 
-    &-link, &-cta {
-        font-weight: 600;
-        font-size: 20px;
-        font-family: 'Open Sans', sans-serif;
-        text-transform: uppercase;
-        text-decoration: none;
-        color: black;
+    &-link {
+        @extend %nav-items;
 
-        position: relative;
+        &::after {
+            position: absolute;
+            content: '';
+            left: 10px; // To offset the padding
+            bottom: 2px; // Negative height of the border, minus 5px for looks, plus padding
+            height: 3px;
+            width: calc(100% - 20px); // To offset the padding
+            background-color: $primary-color;
+            opacity: 0;
+            transition: opacity 0.25s;
+        }
 
-        padding: 10px;
-    }
-
-    &-link::after {
-        position: absolute;
-        content: '';
-        left: 10px; // To offset the padding
-        bottom: 2px; // Negative height of the border, minus 5px for looks, plus padding
-        height: 3px;
-        width: calc(100% - 20px); // To offset the padding
-        background-color: $primary-color;
-        opacity: 0;
-        transition: opacity 0.25s;
-    }
-
-    &-link--active::after, &-link:hover::after {
-        opacity: 1;
+        &:hover::after, &--current::after {
+            opacity: 1;
+        }
     }
 
     &-cta {
+        @extend %nav-items;
         text-transform: none;
         background-color: $primary-color;
         color: white;

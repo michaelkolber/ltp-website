@@ -58,6 +58,16 @@ body {
     border-top: 1px solid black;
     border-bottom: 1px solid black; }
 
+.nav-link, .nav-cta {
+    font-weight: 600;
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+    position: relative;
+    padding: 10px; }
+
 .nav {
     max-width: 1200px;
     height: 50px;
@@ -71,15 +81,6 @@ body {
         margin: auto 0; }
     .nav-links {
         margin: auto 0; }
-    .nav-link, .nav-cta {
-        font-weight: 600;
-        font-size: 20px;
-        font-family: 'Open Sans', sans-serif;
-        text-transform: uppercase;
-        text-decoration: none;
-        color: black;
-        position: relative;
-        padding: 10px; }
     .nav-link::after {
         position: absolute;
         content: '';
@@ -90,7 +91,7 @@ body {
         background-color: #3773a5;
         opacity: 0;
         transition: opacity 0.25s; }
-    .nav-link--active::after, .nav-link:hover::after {
+    .nav-link:hover::after, .nav-link--current::after {
         opacity: 1; }
     .nav-cta {
         text-transform: none;
