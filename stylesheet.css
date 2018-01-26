@@ -221,7 +221,7 @@ p {
             width: 75%; } }
     @media (max-width: 450px) {
         .content {
-            width: 85%; } }
+            width: 95%; } }
 
 .intro-image {
     grid-area: intro-image;
@@ -252,5 +252,15 @@ p {
         margin-top: 0; }
     .intro-text__text {
         text-align: center; }
+
+.footer {
+    display: flex;
+    background-color: #282c34;
+    margin-top: 50px;
+    height: 200px; }
+
+.copyright {
+    color: #ffd743;
+    margin: auto; }
 
 /*# sourceMappingURL=stylesheet.css.map */

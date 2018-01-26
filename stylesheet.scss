@@ -258,7 +258,7 @@ p {
         width: 75%;
     }
     @include breakpoint(xsmall) {
-        width: 85%;
+        width: 95%;
     }
 }
 
@@ -304,4 +304,21 @@ p {
     &__text {
         text-align: center;
     }
+}
+
+
+///// Content /////
+
+.footer {
+    display: flex;
+
+    background-color: #282c34;
+
+    margin-top: 50px;
+    height: 200px;
+}
+
+.copyright {
+    color: $primary;
+    margin: auto;
 }
