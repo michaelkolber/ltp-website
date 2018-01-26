@@ -5,6 +5,7 @@
     <title>Let's Talk Python</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700|Open+Sans:400,600|Raleway:400,600,800" rel="stylesheet">
+    <script src="https://use.fontawesome.com/8a8719ec00.js"></script>
     <link rel="stylesheet" href="stylesheet.css" />
 </head>
 
@@ -18,11 +19,14 @@
                     <!-- TODO: Color the letters differently, or add differently colored
                     underlines to each letter. Probably follow Pyhton colors. -->
                     <div class="nav-links">
-                        <a class="nav-link nav-link--current" href="/">Home</a>
-                        <a class="nav-link" href="/">Schedule</a>
-                        <a class="nav-link" href="/">Directions</a>
-                        <a class="nav-link" href="/">Contact</a>
+                        <div class="mobile-nav-wrapper">
+                            <a class="nav-link nav-link--current" href="/">Home</a>
+                            <a class="nav-link" href="/">Schedule</a>
+                            <a class="nav-link" href="/">Directions</a>
+                            <a class="nav-link" href="/">Contact</a>
+                        </div>
                         <a class="nav-cta" href="/">Sign Up</a>
+                        <a class="nav-cta nav-menu" href="#" aria-label="Menu"><i class="fa fa-bars" aria-hidden="true"></i> MENU</a>
                     </div>
                 </nav>
             </div>
@@ -47,5 +51,8 @@
 
     </div>
 </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="script.js"></script>
 
 </html>

@@ -1,13 +1,15 @@
 $(document).ready(function() {
 
     var menuOpen = false;
-    $('.header__link--menu').click(function() {
+    $('.nav-menu').click(function() {
         if (!menuOpen) {
-            $('.site-nav').css({'height': $('.site-nav__container').height() + 6});
+            $('.mobile-nav-wrapper').addClass('mobile-nav-wrapper--active');
             menuOpen = true;
+            console.log('open');
         } else {
-            $('.site-nav').css({'height': 0});
+            $('.mobile-nav-wrapper').removeClass('mobile-nav-wrapper--active');
             menuOpen = false;
+            console.log('closed');
         }
     });
 

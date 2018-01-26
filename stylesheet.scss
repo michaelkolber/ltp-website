@@ -50,6 +50,35 @@ p {
 
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
+
+    border-bottom: solid 4px $primary;
+}
+
+.mobile-nav-wrapper {
+    display: inline;
+
+    @include breakpoint(menu) {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        height: 0;
+
+        overflow: hidden;
+        box-sizing: border-box;
+
+        background-color: #f1fafe;
+
+        display: flex;
+        flex-direction: column;
+
+        transition: height 0.2s, box-shadow 0.2s;
+
+        &--active {
+            height: 320px;
+            box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.18);
+        }
+    }
 }
 
 %nav-items {
@@ -102,6 +131,13 @@ p {
         &:hover::after, &--current::after {
             opacity: 1;
         }
+
+        @include breakpoint(menu) {
+            color: $secondary;
+            margin: 20px auto;
+            font-size: 20px;
+            text-align: center;
+        }
     }
 
     &-cta {
@@ -117,7 +153,17 @@ p {
         padding: 8px 10px;
 
         &:hover {
-            background-color: $secondary;
+            background-color: $primary;
+            color: #4c4c4c;
+        }
+    }
+
+    &-menu {
+        display: none;
+        @extend .nav-cta:hover;
+
+        @include breakpoint(menu) {
+            display: unset;
         }
     }
 }
