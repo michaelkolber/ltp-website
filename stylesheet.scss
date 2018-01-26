@@ -1,6 +1,8 @@
 @import 'reset';
+@import 'functions';
 
-$primary: #3773a5;
+$primary: #ffd743;
+$secondary: #3773a5;
 
 body {
     font-family: 'Raleway', sans-serif;
@@ -10,7 +12,7 @@ h2 {
     text-align: center;
     font-size: 26px;
     font-weight: 600;
-    color: $primary;
+    color: $secondary;
 
     margin: 20px 0;
 }
@@ -28,25 +30,31 @@ p {
 
 %unlink {
     text-decoration: none;
-    color: black;
+    color: white; //black;
 }
 
 
 ///// Navigation /////
 
 .nav-wrapper {
-    margin-top: 10px;
+    position: fixed;
+    z-index: 4000;
+    width: 100%;
+    // margin-top: 10px;
     margin-bottom: 40px;
     padding: 10px;
+    box-sizing: border-box;
 
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    // border-top: 1px solid black;
+    // border-bottom: 1px solid black;
+
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
 }
 
 %nav-items {
     @extend %unlink;
-    font-weight: 600;
-    font-size: 20px;
+    font-size: 16px;
     font-family: 'Open Sans', sans-serif;
     text-transform: uppercase;
 
@@ -56,8 +64,8 @@ p {
 }
 
 .nav {
-    max-width: 1200px;
-    height: 50px;
+    max-width: 1000px;
+    height: 36px;
     margin: 0 auto;
 
     display: flex;
@@ -66,7 +74,7 @@ p {
     &__site-name {
         @extend %unlink;
         font-weight: 800;
-        font-size: 45px;
+        font-size: 36px;
         letter-spacing: 5px;
 
         margin: auto 0;
@@ -109,14 +117,80 @@ p {
         padding: 8px 10px;
 
         &:hover {
-            background-color: $primary;
-            color: white;
+            background-color: $secondary;
         }
     }
 }
 
 
 ///// Content /////
+
+.intro {
+    height: 450px;
+    padding: 36px 10px 0;
+
+    display: flex;
+
+    background: url(spotlightphoto-pale.jpg) top no-repeat;
+    background-size: cover; //100% auto;
+
+    @include breakpoint(med) {
+        height: 300px;
+        padding: 0 10px 36px;
+    }
+    @include breakpoint(xsmall) {
+        height: 250px;
+        padding: 36px 10px 0;
+    }
+}
+.name {
+    margin: auto;
+    grid-area: header;
+    text-align: center;
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    &__main {
+        font-size: 125px;
+        margin-top: 29px + 50px; // To center the name, to account for the subtext at the bottom
+        margin-bottom: 50px;
+
+        @include breakpoint(large) {
+            font-size: 12vw;
+        }
+        @include breakpoint(xsmall) {
+            font-size: 65px;
+        }
+    }
+
+    &__subtext {
+        display: inline-block;
+
+        font-family: 'Open Sans', sans-serif;
+        font-size: 29px;
+        text-transform: uppercase;
+
+        color: white;
+        background-color: $secondary;
+
+        padding: 12px;
+        border-radius: 5px;
+
+        @include breakpoint(large) {
+            font-size: 2.5vw;
+            padding: 1.5vw;
+        }
+        @include breakpoint(small) {
+            font-size: 3vw;
+            padding: 1.8vw;
+        }
+        @include breakpoint(xsmall) {
+            display: none;
+        }
+    }
+}
 
 .content {
     display: grid;
@@ -129,35 +203,19 @@ p {
 
     margin: 0 auto;
     padding: 0 10px;
-    max-width: 1200px;
-}
+    max-width: 1000px;
 
-.name {
-    grid-area: header;
-
-    text-align: center;
-
-    &__main {
-        font-size: 75px;
+    @include breakpoint(small) {
+        grid-template-areas: "header header"
+                             "intro-text intro-text"
+                             "intro-image intro-image";
+        width: 75%;
     }
-
-    &__subtext {
-        display: inline-block;
-
-        font-family: 'Open Sans', sans-serif;
-        font-size: 22px;
-        font-weight: 600;
-        text-transform: uppercase;
-
-        color: white;
-        background-color: $primary;
-
-        margin-top: 15px;
-        margin-bottom: 15px;
-        padding: 8px;
-        border-radius: 5px;
+    @include breakpoint(xsmall) {
+        width: 85%;
     }
 }
+
 
 
 .intro-image {
@@ -168,7 +226,7 @@ p {
 
     height: 300px;
     border-radius: 5px;
-    border: 3px solid $primary;
+    border: 3px solid $secondary;
 
     &::before { // Just to denote there's a placeholder image
         position: absolute;
