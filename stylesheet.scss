@@ -8,13 +8,19 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
-h2 {
+h3 {
     text-align: center;
     font-size: 26px;
     font-weight: 600;
     color: $secondary;
 
     margin: 20px 0;
+}
+
+h2 {
+    @extend h3;
+    font-size: 52px;
+    text-decoration: underline;
 }
 
 p {
@@ -43,7 +49,8 @@ p {
     // margin-top: 10px;
     margin-bottom: 40px;
     padding: 10px;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 
     // border-top: 1px solid black;
     // border-bottom: 1px solid black;
@@ -65,18 +72,33 @@ p {
         height: 0;
 
         overflow: hidden;
-        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
 
         background-color: #f1fafe;
 
+        display: -webkit-box;
+
+        display: -ms-flexbox;
+
         display: flex;
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+
+        -webkit-transition: height 0.2s, -webkit-box-shadow 0.2s;
+
+        transition: height 0.2s, -webkit-box-shadow 0.2s;
 
         transition: height 0.2s, box-shadow 0.2s;
 
+        transition: height 0.2s, box-shadow 0.2s, -webkit-box-shadow 0.2s;
+
         &--active {
             height: 320px;
-            box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.18);
+            -webkit-box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.18);
+                    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.18);
         }
     }
 }
@@ -97,8 +119,14 @@ p {
     height: 36px;
     margin: 0 auto;
 
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
 
     &__site-name {
         @extend %unlink;
@@ -125,6 +153,7 @@ p {
             width: calc(100% - 20px); // To offset the padding
             background-color: $primary;
             opacity: 0;
+            -webkit-transition: opacity 0.25s;
             transition: opacity 0.25s;
         }
 
@@ -144,6 +173,7 @@ p {
         @extend %nav-items;
         text-transform: none;
         color: $primary;
+        -webkit-transition: background-color 0.25s, color 0.25s;
         transition: background-color 0.25s, color 0.25s;
 
         border-radius: 5px;
@@ -175,6 +205,10 @@ p {
     height: 450px;
     padding: 36px 10px 0;
 
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
     display: flex;
 
     background: url(spotlightphoto-pale.jpg) top no-repeat;
@@ -194,9 +228,18 @@ p {
     grid-area: header;
     text-align: center;
 
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
     display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 
     &__main {
         font-size: 125px;
@@ -241,9 +284,11 @@ p {
 .content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-rows: auto auto auto auto;
     grid-template-areas: "header header"
-                         "intro-image intro-text";
+                         "intro-image intro-text"
+                         "contact-heading contact-heading"
+                         "contact contact";
     grid-gap: 40px 40px;
 
 
@@ -254,7 +299,9 @@ p {
     @include breakpoint(small) {
         grid-template-areas: "header header"
                              "intro-text intro-text"
-                             "intro-image intro-image";
+                             "intro-image intro-image"
+                             "contact-heading contact-heading"
+                             "contact contact";
         width: 75%;
     }
     @include breakpoint(xsmall) {
@@ -268,12 +315,13 @@ p {
     grid-area: intro-image;
     position: relative;
 
-    background: url(spotlightphoto.jpg) center/cover no-repeat;
+    background: url(python-logo-generic.svg) center/contain no-repeat;
 
     height: 300px;
     border-radius: 5px;
-    border: 3px solid $secondary;
+    //border: 3px solid $secondary;
 
+    /* Not necessary for production
     &::before { // Just to denote there's a placeholder image
         position: absolute;
         top: 0;
@@ -291,11 +339,13 @@ p {
         box-sizing: border-box;
         background-color: rgba(0, 0, 0, 0.85);
     }
+    */
 }
 
 .intro-text {
     grid-area: intro-text;
-    align-self: center;
+    -ms-flex-item-align: center;
+        align-self: center;
 
     &__heading {
         margin-top: 0;
@@ -306,10 +356,24 @@ p {
     }
 }
 
+.contact__heading {
+    grid-area: contact-heading;
+}
 
-///// Content /////
+.contact__text {
+    grid-area: contact;
+}
+
+.contact__text--subheader {
+    text-align: left;
+}
+
+
+///// Footer /////
 
 .footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
 
     background-color: #282c34;
