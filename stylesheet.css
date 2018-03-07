@@ -3,7 +3,9 @@
    License: none (public domain)
 */
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, h2, h4, h5, h6, p, blockquote, pre,
+h1,
+h3,
+h2, h2, h3, h2, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -46,6 +48,12 @@ table {
     border-spacing: 0; }
 
 body {
+    font-family: 'Lato', sans-serif; }
+
+a {
+    color: #3773a5; }
+
+h1, h3, h2 {
     font-family: 'Raleway', sans-serif; }
 
 h3, h2 {
@@ -53,11 +61,10 @@ h3, h2 {
     font-size: 26px;
     font-weight: 600;
     color: #3773a5;
-    margin: 20px 0; }
+    margin-bottom: 20px; }
 
 h2 {
-    font-size: 52px;
-    text-decoration: underline; }
+    font-size: 52px; }
 
 p {
     font-family: 'Lato', sans-serif;
@@ -177,6 +184,7 @@ p {
 .intro {
     height: 450px;
     padding: 36px 10px 0;
+    margin-bottom: 40px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -239,15 +247,14 @@ p {
 .content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto auto;
-    grid-template-areas: "header header" "intro-image intro-text" "contact-heading contact-heading" "contact contact";
-    grid-gap: 40px 40px;
+    grid-template-areas: "intro-image intro-text" "contact contact";
+    grid-gap: 80px 20px;
     margin: 0 auto;
     padding: 0 10px;
     max-width: 1000px; }
     @media (max-width: 750px) {
         .content {
-            grid-template-areas: "header header" "intro-text intro-text" "intro-image intro-image" "contact-heading contact-heading" "contact contact";
+            grid-template-areas: "intro-text intro-text" "intro-image intro-image" "contact contact";
             width: 75%; } }
     @media (max-width: 450px) {
         .content {
@@ -257,7 +264,7 @@ p {
     grid-area: intro-image;
     position: relative;
     background: url(python-logo-generic.svg) center/contain no-repeat;
-    height: 300px;
+    height: 200px;
     border-radius: 5px;
     /* Not necessary for production
     &::before { // Just to denote there's a placeholder image
@@ -278,6 +285,10 @@ p {
         background-color: rgba(0, 0, 0, 0.85);
     }
     */ }
+    @media (max-width: 600px) {
+        .intro-image {
+            height: 100px;
+            margin-bottom: 60px; } }
 
 .intro-text {
     grid-area: intro-text;
@@ -288,14 +299,21 @@ p {
     .intro-text__text {
         text-align: center; }
 
-.contact__heading {
-    grid-area: contact-heading; }
+.contact-area {
+    grid-area: contact;
+    justify-self: center; }
 
-.contact__text {
-    grid-area: contact; }
-
-.contact__text--subheader {
+.contact-area__heading {
     text-align: left; }
+
+.contact-area__links {
+    text-align: left; }
+
+.contact-area__link {
+    text-decoration: underline;
+    color: #3773a5; }
+    .contact-area__link svg {
+        margin-right: 10px; }
 
 .footer {
     display: -webkit-box;
